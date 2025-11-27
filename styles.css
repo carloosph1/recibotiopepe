@@ -1,0 +1,274 @@
+/* --- Estilos Gerais e Reset --- */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fonte mais moderna */
+    background-color: #eef1f5; /* Fundo mais claro e suave */
+    color: #34495e; /* Cor do texto principal (azul escuro) */
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    display: flex; /* Centraliza o container */
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+.container {
+    width: 100%;
+    max-width: 700px; /* Diminui um pouco a largura máxima */
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px; /* Cantos mais arredondados */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Sombra mais suave */
+}
+
+.company-header {
+    text-align: center;
+    border-bottom: 2px solid #e0e6ed;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+}
+
+.company-header h1 {
+    margin: 5px 0;
+    font-size: 1.9em;
+    color: #007bff;
+}
+
+.company-tagline {
+    font-size: 1em;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #5d6d7e;
+    margin: 0;
+}
+
+.company-cnpj {
+    margin: 0;
+    color: #5d6d7e;
+    font-size: 0.95em;
+}
+
+h2 {
+    text-align: center;
+    color: #34495e;
+    font-size: 1.4em;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+/* --- Estilos de Formulário --- */
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600; /* Levemente mais negrito */
+    color: #5d6d7e; /* Cor de label sutil */
+}
+
+.input-group input[type="text"],
+.input-group input[type="number"],
+.input-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #dcdfe6; /* Borda clara */
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 1em;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2); /* Foco sutil */
+    outline: none;
+}
+
+/* --- Estilos de Botão --- */
+button {
+    padding: 10px 18px;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 500;
+    transition: background-color 0.3s, transform 0.1s;
+    margin-top: 10px;
+}
+
+#receiptForm button[type="submit"] {
+    display: block;
+    width: 100%;
+    background-color: #007bff; /* Azul principal */
+    margin-top: 20px;
+}
+
+#receiptForm button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+#toggleDescriptionManager, #toggleEmployeeManager, #addDescription, #addEmployee {
+    background-color: #28a745; /* Verde para ação secundária */
+    margin-left: 10px;
+}
+
+#toggleDescriptionManager:hover, #toggleEmployeeManager:hover, #addDescription:hover, #addEmployee:hover {
+    background-color: #1e8734;
+}
+
+/* --- Gerenciadores (Funcionários e Descrições) --- */
+.manager-section {
+    border: 1px solid #dcdfe6;
+    background-color: #f8f9fa; /* Fundo levemente diferente */
+    padding: 15px;
+    margin-top: 25px;
+    border-radius: 8px;
+}
+
+.manager-section h2 {
+    text-align: left;
+    border: none;
+    font-size: 1.2em;
+    margin-top: 0;
+    color: #34495e;
+}
+
+.manager-section .input-group {
+    display: flex;
+    gap: 10px;
+}
+
+.manager-section .input-group input {
+    flex-grow: 1;
+}
+
+#descriptionList,
+#employeeList {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+}
+
+#descriptionList li,
+#employeeList li {
+    background: #ffffff;
+    padding: 10px 15px;
+    margin-bottom: 8px;
+    border-left: 4px solid #28a745; /* Pequena borda colorida */
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+#descriptionList .delete-btn,
+#employeeList .delete-btn {
+    background-color: #dc3545;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.8em;
+    margin-left: 10px;
+    line-height: 1; /* Alinha o texto do botão */
+}
+
+#descriptionList .delete-btn:hover,
+#employeeList .delete-btn:hover {
+    background-color: #c82333;
+}
+
+/* --- Área de Recibo --- */
+#receiptOutput {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #e0e6ed;
+}
+
+.receipt-box {
+    border: 2px solid #5d6d7e; /* Borda mais escura e visível */
+    padding: 30px;
+    margin: 20px auto;
+    background-color: #fffffb; /* Quase branco, para simular papel */
+    min-height: 300px;
+    border-radius: 4px;
+    max-width: 550px;
+}
+
+.receipt-box p {
+    margin-bottom: 18px;
+    font-size: 1.12em;
+    line-height: 1.8;
+}
+
+.receipt-box strong {
+    color: #000000; /* Destaca os valores e nomes */
+}
+
+.date {
+    text-align: right;
+    margin-top: 35px;
+    font-style: italic;
+    color: #5d6d7e;
+}
+
+.signature-area {
+    text-align: center;
+    margin-top: 70px;
+}
+
+.signature-area p:first-child {
+    margin-bottom: 5px;
+    border-top: 1px dashed #34495e; /* Linha tracejada para assinatura */
+    padding-top: 5px;
+    display: inline-block;
+    width: 80%;
+}
+
+.company-info {
+    text-align: center;
+    margin-top: 30px;
+    border-top: 1px dashed #dcdfe6;
+    padding-top: 15px;
+    font-size: 0.9em;
+    color: #5d6d7e;
+}
+
+.hidden {
+    display: none;
+}
+
+/* --- Estilo de Impressão --- */
+@media print {
+    body {
+        background-color: #fff;
+        padding: 0;
+        margin: 0;
+        display: block;
+    }
+    .container {
+        box-shadow: none;
+        max-width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+    #receiptForm, #descriptionManager, button:not(.delete-btn) {
+        display: none;
+    }
+    #receiptOutput {
+        display: block !important;
+        border-top: none;
+        padding-top: 0;
+    }
+    .receipt-box {
+        border: 2px solid #000;
+        box-shadow: none;
+        max-width: 100%;
+        margin: 0;
+        padding: 40px;
+    }
+}

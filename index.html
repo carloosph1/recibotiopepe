@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emissão de Recibo - Garrido Restaurante Ltda</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="company-header">
+          
+            <h1>Garrido Restaurante Ltda</h1>
+            <p class="company-cnpj">CNPJ: 12.045.985/0001-50</p>
+        </header>
+
+        <form id="receiptForm">
+            <div class="input-group">
+                <label for="employeeSelect">Nome do Funcionário:</label>
+                <select id="employeeSelect" required></select>
+                <button type="button" id="toggleEmployeeManager">Gerenciar Funcionários</button>
+            </div>
+
+            <div class="input-group">
+                <label for="amount">Valor (R$):</label>
+                <input type="number" id="amount" step="0.01" required>
+            </div>
+
+            <div class="input-group">
+                <label for="descriptionSelect">Descrição (Referente a):</label>
+                <select id="descriptionSelect" required></select>
+                <button type="button" id="toggleDescriptionManager">Gerenciar Descrições</button>
+            </div>
+
+            <button type="submit">Gerar Recibo</button>
+        </form>
+
+        <div id="employeeManager" class="hidden manager-section">
+            <h2>👥 Gerenciar Funcionários</h2>
+            <div class="input-group">
+                <input type="text" id="newEmployee" placeholder="Novo funcionário (ex: João Silva)">
+                <button type="button" id="addEmployee">Adicionar</button>
+            </div>
+            <ul id="employeeList"></ul>
+        </div>
+
+        <div id="descriptionManager" class="hidden manager-section">
+            <h2>⚙️ Gerenciar Descrições</h2>
+            <div class="input-group">
+                <input type="text" id="newDescription" placeholder="Nova descrição (ex: Diária, Entrega)">
+                <button type="button" id="addDescription">Adicionar</button>
+            </div>
+            <ul id="descriptionList"></ul>
+        </div>
+
+        <div id="receiptOutput" class="hidden">
+            
+            <div class="receipt-box">
+                <p id="receiptText"></p>
+                <p class="date">Recife, <span id="currentDate"></span></p>
+                
+                <div class="signature-area">
+                    <p>____________________________________</p>
+                    <p>Assinatura do Funcionário</p>
+                </div>
+                
+                <div class="company-info">
+                    <p><strong>Garrido Restaurante Ltda</strong></p>
+                    <p>CNPJ: 12.045.985/0001-50</p>
+                </div>
+            </div>
+            <button onclick="window.print()">🖨️ Imprimir Recibo</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
