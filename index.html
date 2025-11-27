@@ -3,15 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Emissão de Recibo - Garrido Restaurante Ltda</title>
+    <title> 🖨️ Emissão de Recibo </title>
     <link rel="stylesheet" href="styles.css">
+    
 </head>
 <body>
     <div class="container">
         <header class="company-header">
-          
-            <h1>Garrido Restaurante Ltda</h1>
-            <p class="company-cnpj">CNPJ: 12.045.985/0001-50</p>
+            <div class="company-branding">
+                <img src="logo-tiopepe.png" alt="Logo Tio Pepe" class="company-logo">
+                <div class="company-title">
+                    <h1>Garrido Restaurante Ltda</h1>
+                    <p class="company-cnpj">CNPJ: 12.045.985/0001-50</p>
+                </div>
+            </div>
         </header>
 
         <form id="receiptForm">
@@ -19,6 +24,16 @@
                 <label for="employeeSelect">Nome do Funcionário:</label>
                 <select id="employeeSelect" required></select>
                 <button type="button" id="toggleEmployeeManager">Gerenciar Funcionários</button>
+            </div>
+
+            <div class="input-group">
+                <label for="employeeCpf">CPF do Funcionário:</label>
+                <input type="text" id="employeeCpf" placeholder="000.000.000-00" required>
+            </div>
+
+            <div class="input-group">
+                <label for="employeePhone">Telefone / Contato:</label>
+                <input type="text" id="employeePhone" placeholder="(81) 99999-9999" required>
             </div>
 
             <div class="input-group">
@@ -60,16 +75,17 @@
                 <p class="date">Recife, <span id="currentDate"></span></p>
                 
                 <div class="signature-area">
-                    <p>____________________________________</p>
-                    <p>Assinatura do Funcionário</p>
+                    <div class="signature-line"></div>
+                    <p class="signature-info">
+                        <span id="employeeNameOutput"></span><br>
+                        <span id="employeeCpfOutput"></span><br>
+                        <span id="employeePhoneOutput"></span>
+                    </p>
                 </div>
                 
-                <div class="company-info">
-                    <p><strong>Garrido Restaurante Ltda</strong></p>
-                    <p>CNPJ: 12.045.985/0001-50</p>
-                </div>
+                
             </div>
-            <button onclick="window.print()">🖨️ Imprimir Recibo</button>
+            <button class="print-button" onclick="window.print()">🖨️ Imprimir Recibo</button>
         </div>
     </div>
 

@@ -2,6 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const receiptForm = document.getElementById('receiptForm');
     const employeeSelect = document.getElementById('employeeSelect');
     const amountInput = document.getElementById('amount');
+    const employeeCpfInput = document.getElementById('employeeCpf');
+    const employeePhoneInput = document.getElementById('employeePhone');
     const descriptionSelect = document.getElementById('descriptionSelect');
     const receiptOutput = document.getElementById('receiptOutput');
     const receiptText = document.getElementById('receiptText');
@@ -16,6 +18,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const newEmployeeInput = document.getElementById('newEmployee');
     const addEmployeeButton = document.getElementById('addEmployee');
     const employeeListUl = document.getElementById('employeeList');
+    const employeeNameOutput = document.getElementById('employeeNameOutput');
+    const employeeCpfOutput = document.getElementById('employeeCpfOutput');
+    const employeePhoneOutput = document.getElementById('employeePhoneOutput');
 
     const COMPANY_NAME = "Garrido Restaurante Ltda";
     const COMPANY_CNPJ = "12.045.985/0001-50";
@@ -38,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (stored) {
             return JSON.parse(stored);
         }
-        return ["João Silva", "Maria Souza", "Carlos Pereira"];
+        return ["Carlos Pereira"];
     };
 
     let descriptions = loadDescriptions();
@@ -259,6 +264,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const employeeName = employeeSelect.value;
         const amount = amountInput.value;
+        const employeeCpf = employeeCpfInput.value.trim();
+        const employeePhone = employeePhoneInput.value.trim();
         if (!amount || Number.isNaN(Number(amount))) {
             alert('Informe um valor válido.');
             return;
@@ -269,6 +276,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (!employeeName) {
             alert('Cadastre um funcionário antes de gerar o recibo.');
+            return;
+        }
+
+        if (!employeeCpf) {
+            alert('Informe o CPF do funcionário.');
+            return;
+        }
+
+        if (!employeePhone) {
+            alert('Informe o telefone/contato do funcionário.');
             return;
         }
 
@@ -283,6 +300,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         receiptText.innerHTML = receiptTemplate;
         currentDateSpan.textContent = dateString;
+        employeeNameOutput.textContent = employeeName;
+        employeeCpfOutput.textContent = employeeCpf;
+        employeePhoneOutput.textContent = employeePhone;
         
         receiptOutput.classList.remove('hidden');
     });
